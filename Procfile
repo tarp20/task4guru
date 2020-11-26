@@ -1,0 +1,1 @@
+web: gunicorn task4guru.wsgi --log-file -
