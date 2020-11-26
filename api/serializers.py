@@ -19,6 +19,9 @@ class CarSerializers(serializers.ModelSerializer):
         if is_car_exist(Make_Name, Model_Name):
             try:
                 Car.objects.get(Make_Name=Make_Name, Model_Name=Model_Name)
+                message = {
+                'Error': 'This car already exists in our database'}
+                raise serializers.ValidationError(message)
             except Car.DoesNotExist:
                 return Car.objects.create(Make_Name=Make_Name,
                                           Model_Name=Model_Name)

@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =config('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'task4guru.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('SQL_ENGINE')
-        'NAME': config('SQL_DATABASE'),c
+        'ENGINE': config('SQL_ENGINE'),
+        'NAME': config('SQL_DATABASE'),
         'USER': config('SQL_USER'),
         'PASSWORD': config('SQL_PASSWORD'),
         'HOST': config('SQL_HOST'),
